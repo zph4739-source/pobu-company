@@ -146,7 +146,7 @@ function POBUConsole({ index, onSelect, lang }: { index: number; onSelect: (i: n
     <div className="console-tabs" aria-label={t.console.tabs}>{fields.map((field,i) => <button key={field.name} aria-pressed={i===index} onClick={() => onSelect(i)}><span>0{i+1}</span>{field.label[lang]}</button>)}</div>
     <div className="console-body" key={`${index}-${lang}`}>
       <div className="console-meta"><span>{t.console.field} / {fields[index].label[lang].toUpperCase()}</span><span className="status">{status}</span></div>
-      <div className="console-title"><h3>{project.consoleTitle[lang]}</h3><span>↗</span></div>
+      <div className="console-title"><h3>{project.consoleTitle[lang]}</h3><span className="console-arrow" aria-hidden="true"><ArrowUpRight size={17} strokeWidth={1.6} /></span></div>
       <p className="console-description">{project.detail[lang]}</p>
       <Diagram field={index} step={step} lang={lang} />
       <div className="diagram-caption"><span>FIG. 0{index+1} / {t.console.figure}</span><span>{t.console.state} / {String(step).padStart(2,"0")}</span></div>
