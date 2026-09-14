@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { fields, projects, siteConfig, team, type Language } from "@/lib/pobu";
 import { siteBasePath } from "@/lib/metadata";
+import { BrandLogo } from "@/components/brand-logo";
 
 const copy = {
   ko: {
@@ -111,13 +112,7 @@ const copy = {
 const sectionIds = ["home", "work", "fields", "about", "team", "contact"];
 
 function Wordmark({ large = false }: { large?: boolean }) {
-  return siteConfig.logo ? <img className={large ? "brand-image large" : "brand-image"} src={siteConfig.logo} alt="POBU" /> : (
-    <span className={large ? "brand-lockup brand-lockup-large" : "brand-lockup"}>
-      <span className={large ? "wordmark large" : "wordmark"}>POBU</span>
-      <span className="brand-est"><span aria-hidden="true" />EST. 2026<span aria-hidden="true" /></span>
-      <span className="brand-motto">THINK. BUILD. BEYOND.</span>
-    </span>
-  );
+  return <BrandLogo large={large} />;
 }
 
 function Diagram({ field, step = 0, lang }: { field: number; step?: number; lang: Language }) {
