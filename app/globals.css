@@ -44,3 +44,18 @@
 /* Visible brand-name signal shared by people and search engines. */
 .hero-site-name{margin:-31px 0 28px;font:600 12px/1.4 var(--font-ui);letter-spacing:.12em;color:#8794a1;text-transform:none}.hero-site-name span[lang=en]{color:#65717d}
 @media(max-width:767px){.hero-site-name{margin:-23px 0 24px;font-size:11px;letter-spacing:.09em}}
+
+/* Photo-reconstructed brand, layered in CSS 3D without a WebGL dependency. */
+.pobu-brand{display:inline-flex;width:132px;flex-direction:column;gap:8px;vertical-align:middle}
+.pobu-logo-flat{display:block;width:100%;height:auto}
+.pobu-brand-caption{display:flex;justify-content:space-between;gap:12px;color:#9baab7;font:500 7px/1.5 var(--font-ui);letter-spacing:.07em;white-space:nowrap}
+.pobu-brand-hero{--logo-rx:-7deg;--logo-ry:-10deg;--logo-light:38%;width:min(660px,78vw);gap:30px;margin:10px 0 58px;perspective:1100px}
+.pobu-logo-stage{display:block;position:relative;width:100%;aspect-ratio:610/150;transform-style:preserve-3d}
+.pobu-logo-solid{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--logo-rx)) rotateY(var(--logo-ry));transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.pobu-logo-layer,.pobu-logo-face{position:absolute;inset:0;display:block;mask:url('/pobu-company/pobu-logo.svg') center/contain no-repeat;-webkit-mask:url('/pobu-company/pobu-logo.svg') center/contain no-repeat;background:linear-gradient(165deg,#8996a3 0%,#46525e 25%,#131b24 53%,#5a6a79 82%,#b5c5d0 100%);backface-visibility:hidden}
+.pobu-logo-face{transform:translateZ(16px);background:radial-gradient(ellipse at var(--logo-light) 15%,#fff 0%,#edf4f7 12%,transparent 52%),linear-gradient(172deg,#f2f6f7 0%,#bbc7d0 39%,#637383 48%,#d8e2e9 55%,#f9fbfc 67%,#9caab7 100%)}
+.pobu-logo-stage:after{content:'';position:absolute;left:9%;right:4%;height:32%;bottom:-26%;background:#0009;border-radius:50%;filter:blur(20px);transform:rotate(-2deg);pointer-events:none}
+.pobu-brand-hero .pobu-brand-caption{font-size:12px;letter-spacing:.16em;padding:0 7%;color:#82919e}
+.footer-main .pobu-brand{width:156px}
+@media(max-width:767px){.pobu-brand{width:112px}.pobu-brand-caption{font-size:6px;gap:6px}.pobu-brand-hero{width:85vw;gap:24px;margin:10px 0 50px}.pobu-brand-hero .pobu-brand-caption{font-size:9px;letter-spacing:.08em;padding:0 4%}}
+@media(prefers-reduced-motion:reduce){.pobu-logo-solid{transform:none;transition:none}}
